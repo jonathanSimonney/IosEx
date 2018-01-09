@@ -12,10 +12,10 @@ class ApiManager{
     static var instance :ApiManager?
     
     static func getInstance() -> ApiManager{
-        if self::instance == nil{
-            self::instance =
+        if (ApiManager.instance == nil){
+            ApiManager.instance = ApiManager()
         }
         
-        return self::instance
+        return ApiManager.instance!
     }
 }
