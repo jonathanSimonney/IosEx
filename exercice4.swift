@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class ApiManager{
+    static var instance :ApiManager?
+    
+    static func getInstance() -> ApiManager{
+        if self::instance == nil{
+            self::instance =
+        }
+        
+        return self::instance
+    }
+}
