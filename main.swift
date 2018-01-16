@@ -11,12 +11,7 @@ import Foundation
 print(condog(str: " find it disgusting ", prefix: "I", suffix: "that I can't write it on my own computer"))
 print(cleanHobbits(arr: ["Frodo", "Aragorn", "Boromir", "Legolas", "Gimli", "Gandalf", "Samsaget"]))
 
-let test = Person(firstname: "Emir", lastname: "Azaiez", gender: Person.Gender.Male, email: "emir.azaiezsahli@gmail.com", birthdate: (date: "1900-01-11", format: "yyyy-MM-dd"))
-
-test.show()
-
-ApiManager.getInstance().getRandomUser(completion: { data in
-    print(data)
+ApiManager.getInstance().getRandomUserHydratedWithPerson(userCompletion: { person in
+    person.show()
 })
-
 RunLoop.main.run();

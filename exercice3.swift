@@ -82,19 +82,37 @@ class Person :Existence{
     var lastname :String
     var email :Email
     
-    init(firstname: String, lastname: String, gender: Gender, email: String, birthdate: (date: String, format: String)){
+    init(firstname: String, lastname: String, gender: String, email: String, birthdate: (date: String, format: String)){
         self.firstname = firstname
         self.lastname = lastname
-        self.gender = gender
         self.email = Email(email: email)
+        
+        switch gender {
+        case "male":
+            self.gender = Person.Gender.Male
+        case "female":
+            self.gender = Person.Gender.Female
+        default:
+            self.gender = Person.Gender.Other
+        }
+        
         super.init(date: birthdate.date.toDate(format: birthdate.format))
     }
     
-    init(firstname: String, lastname: String, gender: Gender, email: String, birthdate: Date){
+    init(firstname: String, lastname: String, gender: String, email: String, birthdate: Date){
         self.firstname = firstname
         self.lastname = lastname
-        self.gender = gender
         self.email = Email(email: email)
+        
+        switch gender {
+        case "male":
+            self.gender = Person.Gender.Male
+        case "female":
+            self.gender = Person.Gender.Female
+        default:
+            self.gender = Person.Gender.Other
+        }
+        
         super.init(date: birthdate)
     }
     
