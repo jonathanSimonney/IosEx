@@ -29,7 +29,10 @@ class ApiManager{
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                completion(json)
+                let dictJson = json
+                let array = dictJson["results"] as! [Any]
+                let unwrappedDictJson = array[0] as! [String: Any]
+                completion(unwrappedDictJson)
             }catch let error as NSError {
                 print(error)
             }
